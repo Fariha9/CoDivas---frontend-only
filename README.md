@@ -1,16 +1,48 @@
-# React + Vite
+# CoDivas
+CoDivas is a frontend web application built using React and Vite.
+It is developed as a collaborative academic project focusing on modular UI design, role-based contribution, and structured component architecture.
+The project includes multiple functional sections such as authentication, learning modules, quizzes, blogs, courses, and a unified dashboard.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployment
 
-Currently, two official plugins are available:
+Deployed using Vercel with automatic CI/CD from GitHub main branch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live URL: https://co-divas-frontend-only.vercel.app/
 
-## React Compiler
+## Tech Stack
+- React
+- Vite
+- JavaScript
+- CSS / Tailwind
+- DaisyUI
+- Git & GitHub
+- Vercel (Deployment)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Team Contributions
 
-## Expanding the ESLint configuration
+### Fariha — Authentication & Entry Flow
+- Developed landing page / front page
+- Implemented Login system UI
+- Designed and built Signup page
+- Created About page structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Abonti — Quizzes & Blogs Module
+- Developed Quiz interface and related UI components
+- Implemented Blog section layout and structure
+- Designed interactive content presentation
+- Ensured usability and clean navigation within learning modules
+
+### Oboni — Courses & Contact Module
+- Built Courses page UI and structure
+- Developed Contact Us page
+- Designed informational and communication sections
+- Maintained consistency in UI styling across modules
+
+### Collective Work — Dashboard
+- Designed and implemented shared Dashboard system
+- Integrated navigation between modules
+- Ensured unified user experience across the platform
+- Collaborated on layout, structure, and responsiveness
+
+
+
