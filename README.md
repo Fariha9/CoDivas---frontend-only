@@ -32,7 +32,7 @@ Live URL: https://co-divas-frontend-only.vercel.app/
 - Designed interactive content presentation
 - Ensured usability and clean navigation within learning modules
 
-### Oboni — Courses & Contact Module
+### Nujhat — Courses & Contact Module
 - Built Courses page UI and structure
 - Developed Contact Us page
 - Designed informational and communication sections
