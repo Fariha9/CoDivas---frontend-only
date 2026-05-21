@@ -1,4 +1,4 @@
-import { ShoppingCart, ChevronDown, GraduationCap, Code, Globe, Database, Cpu, BrainCircuit, Boxes, Brain } from 'lucide-react';
+import { ShoppingCart, ChevronDown, GraduationCap, Code, Globe, Database, Cpu, BrainCircuit, Boxes, Brain, Code2 } from 'lucide-react';
 import React, { useState } from 'react'; 
 import { Link } from 'react-router';
 
@@ -6,7 +6,6 @@ const Navbar = ({cart}) => {
     
     const [showAllQuizzes, setShowAllQuizzes] = useState(false);
 
-    
     const quizItems = [
         { id: 1, name: "Intro to Programming", icon: <GraduationCap size={16} className="text-purple-500" /> },
         { id: 2, name: "Data Structures & Algorithms", icon: <Code size={16} className="text-blue-500" /> },
@@ -16,15 +15,14 @@ const Navbar = ({cart}) => {
         { id: 6, name: "Machine Learning", icon: <BrainCircuit size={16} className="text-indigo-500" /> },
     ];
 
-   
     const displayedQuizzes = showAllQuizzes ? quizItems : quizItems.slice(0, 3);
 
     const courseItems = [
-        {id: "programming",name: "Introduction To Programming",icon: <Code className="text-purple-600" size={18} />,link: "/Courses/Programming",},
-        {id: "dsa",name: "Data Structures & Algorithms",icon: <Boxes className="text-blue-600" size={18} />,link: "/Courses/DS",},
-        {id: "web",name: "Web Development",icon: <Globe className="text-green-600" size={18} />,link: "/Courses/Web",},
-        {id: "ai",name: "Artificial Intelligence",icon: <Cpu className="text-red-600" size={18} />,link: "/Courses/AI",},
-        {id: "ml",name: "Machine Learning",icon: <Brain className="text-indigo-600" size={18} />,link: "/Courses/ML",},
+        {id: "programming", name: "Introduction To Programming", icon: <Code className="text-purple-600" size={18} />, link: "/Courses/Programming"},
+        {id: "dsa", name: "Data Structures & Algorithms", icon: <Boxes className="text-blue-600" size={18} />, link: "/Courses/DS"},
+        {id: "web", name: "Web Development", icon: <Globe className="text-green-600" size={18} />, link: "/Courses/Web"},
+        {id: "ai", name: "Artificial Intelligence", icon: <Cpu className="text-red-600" size={18} />, link: "/Courses/AI"},
+        {id: "ml", name: "Machine Learning", icon: <Brain className="text-indigo-600" size={18} />, link: "/Courses/ML"},
     ];
 
     return (
@@ -65,26 +63,30 @@ const Navbar = ({cart}) => {
                     </ul>
                 </div>
 
-                <Link to="/" className="btn btn-ghost normal-case text-2xl font-black tracking-tighter text-white hover:bg-transparent border-none">
-                    Co<span className="text-purple-400">Divas</span>
+                {/* LOGO */}
+                <Link to="/" className="normal-case flex items-center gap-1 group px-2 py-1 rounded-lg hover:bg-white/10 transition-colors">
+                    <Code2 className="w-5 h-5 text-purple-400 group-hover:rotate-12 transition-transform duration-300" />
+                    <span className="text-2xl font-extrabold tracking-tight text-white">
+                        Co
+                    </span>
+                    <span className="text-2xl font-extrabold tracking-tight text-purple-400 group-hover:text-purple-300 transition-colors">
+                        Divas
+                    </span>
                 </Link>
             </div>
 
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-4">
-                    <li><Link to="/dashboard" className=" hover:bg-white hover:text-black rounded-lg font-bold transition-all">Dashboard</Link></li>
+                    <li><Link to="/dashboard" className="hover:bg-white hover:text-black rounded-lg font-bold transition-all">Dashboard</Link></li>
                     <li><Link to="/about" className="hover:bg-white hover:text-black rounded-lg font-bold transition-all">About</Link></li>
 
                     <li className="dropdown dropdown-hover group">
                         <Link to="/quizzes" className="px-4 py-2 hover:bg-white hover:text-black rounded-lg transition-all flex items-center gap-2 font-bold">
                             Quizzes <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300"/>
                         </Link>
-                        
                         <ul tabIndex={0} className="dropdown-content menu p-3 shadow-2xl bg-base-100 rounded-2xl w-80 text-black border border-purple-100 mt-0 transform origin-top transition-all duration-300 scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100">
                             <div className="grid grid-cols-1 gap-1">
                                 <span className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">Pick a Topic</span>
-                                
-                                
                                 {displayedQuizzes.map((item) => (
                                     <li key={item.id}>
                                         <Link to={`/quizzes?id=${item.id}`} className="flex items-center gap-3 p-3 hover:bg-purple-50 rounded-xl group/item transition-colors">
@@ -95,11 +97,9 @@ const Navbar = ({cart}) => {
                                         </Link>
                                     </li>
                                 ))}
-
                                 <div className="divider my-1 opacity-50"></div>
                                 <li>
-                                    {/* বাটনটি ক্লিক করলে বাকি কুইজগুলো শো করবে */}
-                                    <button 
+                                    <button
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setShowAllQuizzes(!showAllQuizzes);
@@ -114,18 +114,20 @@ const Navbar = ({cart}) => {
                     </li>
 
                     <li className="dropdown dropdown-hover group">
-                        <Link to="/courses" type="button" className="px-4 py-2 hover:bg-white hover:text-black rounded-lg transition-all flex items-center gap-2 font-bold">
-                            Courses<ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300"/>
+                        <Link to="/courses" className="px-4 py-2 hover:bg-white hover:text-black rounded-lg transition-all flex items-center gap-2 font-bold">
+                            Courses <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300"/>
                         </Link>
                         <ul tabIndex={0} className="dropdown-content menu p-3 shadow-2xl bg-base-100 rounded-2xl w-80 text-black border border-purple-100 mt-0 transform origin-top transition-all duration-300 scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100">
                             <div className="grid grid-cols-1 gap-1">
                                 <span className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">Pick a Course</span>
-                                {courseItems.map((item) => (<li key={item.id}>
-                                    <Link to={item.link} className="flex items-center gap-3 p-3 hover:bg-purple-50 rounded-xl group/item transition-colors">
-                                    <div className="p-2 bg-gray-50 rounded-lg group-hover/item:bg-white group-hover/item:shadow-sm transition-all">{item.icon}</div>
-                                    <span className="text-[15px] font-semibold text-gray-700 group-hover/item:text-purple-700">{item.name}</span>
-                                    </Link>
-                                </li>))}
+                                {courseItems.map((item) => (
+                                    <li key={item.id}>
+                                        <Link to={item.link} className="flex items-center gap-3 p-3 hover:bg-purple-50 rounded-xl group/item transition-colors">
+                                            <div className="p-2 bg-gray-50 rounded-lg group-hover/item:bg-white group-hover/item:shadow-sm transition-all">{item.icon}</div>
+                                            <span className="text-[15px] font-semibold text-gray-700 group-hover/item:text-purple-700">{item.name}</span>
+                                        </Link>
+                                    </li>
+                                ))}
                                 <div className="divider my-1 opacity-50"></div>
                                 <li><Link to="/courses" className="justify-center font-bold text-purple-600 hover:bg-purple-600 hover:text-white rounded-xl py-2">
                                     View All Courses</Link>

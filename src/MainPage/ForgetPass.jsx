@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import toast from "react-hot-toast";
 
 const ForgetPass = () => {
@@ -29,21 +28,23 @@ const ForgetPass = () => {
   };
 
   return (
-    <dialog id="forgetPass" className="modal">
-      <div className="modal-box max-w-md rounded-2xl p-8">
+    <dialog id="forgetPass" className="modal modal-bottom sm:modal-middle">
+      <div className="modal-box max-w-md rounded-2xl p-8 bg-[#18181c] border border-white/10 text-white">
 
         {/* Close */}
         <form method="dialog">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-4">
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-400 hover:bg-white/20 hover:text-white">
             ✕
           </button>
         </form>
 
+
+
         {/* Header */}
-        <h2 className="text-2xl font-bold text-purple-700 mb-2">
-          Reset Password
+        <h2 className="text-2xl font-bold text-white mb-2">
+          Reset <span className="text-purple-400">Password</span>
         </h2>
-        <p className="text-gray-500 mb-6">
+        <p className="text-gray-500 mb-6 text-sm">
           Enter your email to receive reset instructions
         </p>
 
@@ -57,24 +58,23 @@ const ForgetPass = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered w-full focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                className="input w-full bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:border-purple-500 focus:outline-none"
               />
-
               <button
                 type="submit"
-                className="btn w-full bg-purple-600 text-white hover:bg-purple-700 border-none transition-all"
+                className="btn w-full bg-purple-600 text-white hover:bg-purple-500 border-none shadow-lg shadow-purple-900/40 transition-all"
               >
                 Send Reset Link
               </button>
             </>
           ) : (
             <div className="text-center">
-              <p className="text-green-600 font-semibold mb-4">
-                ✅ Reset link sent successfully!
+              <p className="text-green-400 font-semibold mb-4">
+                Reset link sent successfully!
               </p>
               <button
                 type="button"
-                className="btn bg-purple-600 text-white hover:bg-purple-700 w-full"
+                className="btn bg-purple-600 text-white hover:bg-purple-500 border-none w-full shadow-lg shadow-purple-900/40"
                 onClick={() => {
                   document.getElementById("forgetPass").close();
                   setSent(false);
@@ -86,20 +86,25 @@ const ForgetPass = () => {
           )}
         </form>
 
-        <p className="text-center text-gray-600 mt-6">
+        <p className="text-center text-gray-500 mt-6 text-sm">
           Remember your password?
-          <Link
-            className="text-purple-600 font-semibold ml-1 cursor-pointer hover:underline"
+          <button
+            className="text-purple-400 font-semibold ml-1 cursor-pointer hover:underline"
             onClick={() => {
               document.getElementById("forgetPass").close();
               document.getElementById("login").showModal();
             }}
           >
             Login
-          </Link>
+          </button>
         </p>
 
       </div>
+
+      {/* Click outside to close */}
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
     </dialog>
   );
 };
